@@ -1,5 +1,6 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.ArrayList;
 import java.util.Base64;
 
 /*
@@ -63,24 +64,39 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
-        int is1 = s1.indexOf(' ');
-        int is2 = s2.indexOf(' ');
-        int is3 = s2.indexOf(' ');
-    	if(s1.charAt(is1+1)<s2.charAt(is2+1)) {
-    		return s1.substring(0, is1);
+        int is1 = s1.trim().indexOf(' ');
+        int is2 = s2.trim().indexOf(' ');
+        int is3 = s3.trim().indexOf(' ');
+    
+
+    	if(s1.trim().charAt(is1+1)<s2.trim().charAt(is2+1)) {
+    	
+    		return s1.trim();
     	}
-    	if(s2.charAt(is2+1)<s3.charAt(is3+1)) {
-    		return s2.substring(0, is2);
+    	if(s2.trim().charAt(is2+1)<s3.trim().charAt(is3+1)) {
+    
+    		return s2.trim();
     	}
     	else {
-    		return s3.substring(0, is3+1);
+    	
+    		return s3.trim();
     	}
     	
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+int combined =0;
+ArrayList<Integer> list = new ArrayList();
+        for (int i = 0; i < s.length(); i++) {
+			if(Character.isDigit(s.charAt(i))) {
+				list.add(Character.getNumericValue(s.charAt(i)));
+			}
+		}
+       for (int i = 0; i < list.size(); i++) {
+		combined += list.get(i);
+	}
+        return combined;
     }
 
     // Return the number of times String substring appears in String s
