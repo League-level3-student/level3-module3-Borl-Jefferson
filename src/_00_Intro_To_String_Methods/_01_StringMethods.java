@@ -156,15 +156,43 @@ ArrayList<Integer> list = new ArrayList();
     public static boolean palindrome(String s) {
        s=s.trim();
        s=s.replaceAll(" ", "");
+       if(s.contains("?")) {
+       s=s.replace("?", "");
+       }
+       s=s.toLowerCase();
+       if(s.contains(",")) {
+    	   s=s.replaceAll(",", "");
+    	   }
+       if(s.contains("-")) {
+    	   s=s.replaceAll("-", "");
+       }
+       if(s.contains(".")) {
+    	   s=s.replaceAll(".", "");
+       }
+       if(s.contains(":")) {
+    	   s.replaceAll(":", "");
+       }
+       boolean fin =false;
+       char[] as = s.toCharArray();
        
      String srev = "";
      for (int i = s.length()-1; -1 < i; i--) {
-		srev+=String.valueOf(s.charAt(i));
-		 System.out.println(srev);
+    	 
+		srev+=String.valueOf(as[i]);
+		 System.out.println(srev + " MMM");
 	}
-    
      
-    	return s.equals(srev);
+   
+     
+     System.out.println(srev + s);
+     if(srev.equals(s)) {
+    	 System.out.println("same");
+    fin = true;	
+    }
+     else {
+    	 System.out.println("not same");
+    	 }
+     return fin;
     }
 }
 
