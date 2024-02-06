@@ -16,7 +16,24 @@ public class _01_RegularExpressionsIntro {
     /*
      * Code method below! 
      */
+	
     String emailRemover(String message) {
-        return null;
+    String fin ="";
+    /*
+      Replace all characters including and in between ',' and 'x'  
+     
+      '.' represents any character (except a new line),
+      '+' means match 1 or more characters, so it reads
+      <comma><1 or more characters><x character>
+     
+    regEx = "[,].+[x]";
+    output = testString.replaceAll(regEx, "_");
+    System.out.println(output);
+    */
+    String regEx = "[@].+[.]";
+     fin = message.replaceAll(regEx, "@mail.");
+    System.out.println(fin);
+    
+    return fin;
     }
 }

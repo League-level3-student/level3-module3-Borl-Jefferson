@@ -21,7 +21,8 @@ public class _01_TheWave {
     
     public static ArrayList<String> wave(String str) {
     	 ArrayList<String> fin = new ArrayList<String>();
-StringBuilder sb = new StringBuilder(str);
+StringBuilder sb = new StringBuilder(str.toLowerCase());
+
 for (int i = 0; i < sb.length(); i++) {
 	if(sb.charAt(i)!=' ') {
 		char s = Character.toUpperCase(sb.charAt(i));
@@ -29,9 +30,34 @@ for (int i = 0; i < sb.length(); i++) {
 		sb.deleteCharAt(i);
 		sb.insert(i, s);
 		
-		fin.add(sb.toString());
-	}
-}
-        return fin;
+		
+		
+	
+			/*if(i>0 && sb.charAt(i-1)==' ') {
+				 s = Character.toLowerCase(sb.charAt(i-2));
+				 sb.deleteCharAt(i-2);
+					sb.insert(i-2, s);
+			}
+			else */if(i>0) {
+			
+		 s = Character.toLowerCase(sb.charAt(i-1));
+		 sb.deleteCharAt(i-1);
+			sb.insert(i-1, s);
+		}
+			 if(i>1 && sb.charAt(i-1)==' ') {
+				 s = Character.toLowerCase(sb.charAt(i-2));
+				 sb.deleteCharAt(i-2);
+					sb.insert(i-2, s);
+			}
+	
+		
+		System.out.println(sb);
+	fin.add(sb.toString());
+		
+		}
+	
+	
     }
+        return fin;
+}
 }
